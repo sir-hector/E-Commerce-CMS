@@ -3,15 +3,16 @@
 import { useParams } from "next/navigation";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Billboard } from "@prisma/client";
 
 import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@radix-ui/react-separator";
 import { date } from "zod";
 
+import { BillboardColumn } from "./columns";
+
 interface BillboardClientProps {
-  data: Billboard[]
+  data: BillboardColumn[]
 }
 
 
