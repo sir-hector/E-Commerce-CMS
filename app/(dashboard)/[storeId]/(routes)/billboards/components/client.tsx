@@ -9,14 +9,15 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@radix-ui/react-separator";
 import { date } from "zod";
 
-import { BillboardColumn } from "./columns";
+import { BillboardColumn, columns } from "./columns";
+import { DataTable } from "@/components/ui/components-ui";
 
 interface BillboardClientProps {
   data: BillboardColumn[]
 }
 
 
-export const BillboardClient: React.FC<BillboardClientProps> = () => {
+export const BillboardClient: React.FC<BillboardClientProps> = ({data}) => {
   const router = useRouter();
   const params = useParams();
 
@@ -33,6 +34,7 @@ export const BillboardClient: React.FC<BillboardClientProps> = () => {
         </Button>
       </div>
       <Separator />
+      <DataTable columns={columns} data={data}/>
     </>
   );
 };
