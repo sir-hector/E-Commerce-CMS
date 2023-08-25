@@ -10,7 +10,7 @@ import { Separator } from "@radix-ui/react-separator";
 import { date } from "zod";
 
 import { BillboardColumn, columns } from "./columns";
-import { DataTable } from "@/components/ui/components-ui";
+import { DataTable } from "@/components/ui/data-table";
 
 interface BillboardClientProps {
   data: BillboardColumn[]
