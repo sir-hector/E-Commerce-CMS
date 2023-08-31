@@ -2,11 +2,14 @@
 
 import {
   DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuLabel
 } from "@/components/ui/dropdown-menu";
 import { BillboardColumn } from "./columns";
 import { Button } from "@/components/ui/button";
-import { MoreHorizontal } from "lucide-react";
+import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 
 interface CellActionProps {
   data: BillboardColumn;
@@ -21,5 +24,22 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         <MoreHorizontal className="h-4 w-4"/>
       </Button>
     </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">
+        <DropdownMenuLabel>
+            Actions
+        </DropdownMenuLabel>
+        <DropdownMenuItem>
+            <Edit className="mr-2 h-4 w-4"/>
+            Update
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+            <Copy className="mr-2 h-4 w-4"/>
+            Copy id
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+            <Trash className="mr-2 h-4 w-4"/>
+            Delete
+        </DropdownMenuItem>
+    </DropdownMenuContent>
   </DropdownMenu>)
 };
