@@ -66,7 +66,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
     try {
       setLoading(false);
       if(initialData){
-        await axios.patch(`/api/${params.storeId}/categories/${params.billboardId}`, data);
+        await axios.patch(`/api/${params.storeId}/categories/${params.categoryId}`, data);
       } else {
         await axios.post(`/api/${params.storeId}/categories`, data);
       }
@@ -83,12 +83,12 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/categories/${params.billboardId}`);
+      await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
       router.refresh();
       router.push(`/${params.storeId}/categories`);
-      toast.success("Billboard deleted");
+      toast.success("Category deleted deleted");
     } catch (error) {
-      toast.error("Make sure you removed all categories using this billboard");
+      toast.error("Make sure you removed all products using this category");
     } finally {
       setLoading(false);
       setOpen(false);
