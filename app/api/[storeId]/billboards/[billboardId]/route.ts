@@ -96,26 +96,24 @@ export async function DELETE(
 }
 
 export async function GET(
-    req: Request,
-    { params }: { params: { billboardId: string } }
-  ) {
-    try {
-      const { userId } = auth();
-  
-      if (!params.billboardId) {
-        return new NextResponse("Billboard id is required", { status: 400 });
-      }
-  
-  
-      const billboard = await prismadb.store.findUnique({
-        where: {
-          id: params.billboardId,
-        },
-      });
-  
-      return NextResponse.json(billboard);
-    } catch (error) {
-      console.log("[BILLBOARD_GET]", error);
-      return new NextResponse("Internal Error", { status: 500 });
+  req: Request,
+  { params }: { params: { billboardId: string } }
+) {
+  try {
+    const { userId } = auth();
+
+    if (!params.billboardId) {
+      return new NextResponse("Billboard id is required", { status: 400 });
     }
+
+    const billboard = await prismadb.billboard.findUnique({
+      where: {
+        id: params.billboardId,
+      },
+    });
+    return NextResponse.json(billboard);
+  } catch (error) {
+    console.log("[BILLBOARD_GET]", error);
+    return new NextResponse("Internal Error", { status: 500 });
   }
+}
